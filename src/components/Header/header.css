@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-out-section {
+    background-color: #131921;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    padding: 15px;
+}
+.header-out-section a {
+    color: white;
+    text-decoration: none;
+}
+.amazon-logo-container {
+    width: 150px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.amazon-logo-container img {
+    width: 100%;
+
+}
+
+
+.input-container {
+    display: flex;
+    transition: 0.5s ease-out;
+    position: relative;
+}
+.input-container select {
+    width: 80px;
+    height: 50px;
+    /* text-align: center; */
+    font-size: 17px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-style: none;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.select-container{
+    position: absolute;
+    left: 0px;
+    top: 0;
+}
+.location-container {
+    display: flex;
+    gap: 5px;
+}
+
+.location-icon-container {
+    display: flex;
+    align-items: center;
+}
+.center {
+    text-align: center;
+}
+
+.input-container input {
+    height: 50px;
+    width: 800px;
+    border-radius: 12px;
+    border-style: none;
+    border-left-style: solid ;
+    font-size: 21px;
+    padding-left: 100px;
+
+}
+
+input:focus-within {
+    outline: none;
+    border: 5px double orange;
+}
+
+.input-container {
+    position: relative;
+}
+.search-icon-container {
+    background-color: orange;
+    position: absolute;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+.america-flag {
+    width: 27px;
+
+}
+.america-flag img {
+    width: 100%;
+    /* display: flex; */
+}
+
+.america-flag-container {
+    display: flex;
+    gap: 5px;
+    align-items: flex-end;
+}
+
+.language-select select {
+    width: 52px;
+    height: 19px;
+    text-align: center;
+    font-size: 17px;
+    border-style: none;
+    background-color: #131921;
+    color: white;
+    cursor: pointer;
+}
+
+.cart-icon-container {
+    width: 40px;
+    display: flex;
+}
+
+.cart-icon-container img {
+    width: 100%;
+}
+
+.cart-count {
+    color: orange;
+    position: absolute;
+    top: 5px;
+    right: 23px;
+    font-size: 15px;
+}
+
