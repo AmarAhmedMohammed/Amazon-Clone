@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sub-header {
+  background-color: #232f3e;
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 15px;
+  gap: 20px;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.sub-header::-webkit-scrollbar {
+  display: none;/
+}
+
+.sub-header a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.sub-header a:hover {
+  color: goldenrod;
+  transform: scale(1.02);
+}
+
+.sub-header-menu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sub-header-menu svg {
+  font-size: 1.5rem;
+}
+
+.sub-header-menu h4,
+.sub-header h3 {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.sub-header-menu h4 {
+  font-weight: 500;
+}
+
+/* Large desktops: increase spacing and font size */
+@media (min-width: 1400px) {
+  .sub-header {
+    padding: 0 30px;
+    gap: 25px;
+    height: 55px;
+  }
+  .sub-header-menu svg {
+    font-size: 1.6rem;
+  }
+  .sub-header-menu h4,
+  .sub-header h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Desktops to large tablets: reduce spacing and sizes slightly */
+@media (max-width: 1200px) {
+  .sub-header {
+    gap: 15px;
+    padding: 0 12px;
+  }
+  .sub-header-menu svg {
+    font-size: 1.4rem;
+  }
+  .sub-header-menu h4,
+  .sub-header h3 {
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablets: hide less critical items, maintain scroll */
+@media (max-width: 992px) {
+  .sub-header {
+    gap: 12px;
+    height: 45px;
+  }
+  .sub-header a:nth-child(n + 5) {
+    display: none;
+  }
+  .sub-header-menu svg {
+    font-size: 1.3rem;
+  }
+  .sub-header-menu h4,
+  .sub-header h3 {
+    font-size: 0.8rem;
+  }
+}
+
+/* Small tablets to large mobiles: hide more items, prioritize menu */
+@media (max-width: 768px) {
+  .sub-header {
+    gap: 10px;
+    padding: 0 10px;
+    height: 40px;
+  }
+  .sub-header a:nth-child(n + 3) {
+    display: none;
+  }
+  .sub-header-menu svg {
+    font-size: 1.2rem;
+  }
+  .sub-header-menu h4,
+  .sub-header h3 {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobiles: show only menu, allow wrapping if needed */
+@media (max-width: 576px) {
+  .sub-header {
+    height: auto;
+    padding: 5px 8px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .sub-header a:nth-child(n + 2) {
+    display: none; /* Show only 'All' menu */
+  }
+  .sub-header-menu {
+    padding: 5px;
+  }
+  .sub-header-menu svg {
+    font-size: 1.1rem;
+  }
+  .sub-header-menu h4 {
+    font-size: 0.7rem;
+  }
+}
+
+/* Extra small mobiles: minimize sizes for very narrow screens */
+@media (max-width: 400px) {
+  .sub-header {
+    padding: 5px;
+    gap: 5px;
+  }
+  .sub-header-menu {
+    padding: 3px;
+  }
+  .sub-header-menu svg {
+    font-size: 1rem;
+  }
+  .sub-header-menu h4 {
+    font-size: 0.65rem;
+  }
+}

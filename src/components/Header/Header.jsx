@@ -15,7 +15,7 @@ function Header() {
         </a>
         <a href="#" className="location-container link">
           <div className="location-icon-container">
-            <box-icon name='map' type='solid' color='#ffffff' ></box-icon>
+            <box-icon name="map" type="solid" color="#ffffff"></box-icon>
           </div>
           <div>
             <p>Deliver To</p>
@@ -25,9 +25,7 @@ function Header() {
         <div className="input-container">
           <div className="select-container">
             <select name="" id="">
-              <option value="all" className="center">
-                All
-              </option>
+              <option value="all" className="center">All</option>
               <option value="arts-crafts">Arts & Crafts</option>
               <option value="automotive">Automotive</option>
               <option value="baby">Baby</option>
@@ -41,9 +39,7 @@ function Header() {
               <option value="girls-fashion">Girls' Fashion</option>
               <option value="health-household">Health & Household</option>
               <option value="home-kitchen">Home & Kitchen</option>
-              <option value="industrial-scientific">
-                Industrial & Scientific
-              </option>
+              <option value="industrial-scientific">Industrial & Scientific</option>
               <option value="kindle-store">Kindle Store</option>
               <option value="luggage">Luggage</option>
               <option value="mens-fashion">Men's Fashion</option>
@@ -57,14 +53,13 @@ function Header() {
           <div className="search-icon-container">
             <box-icon name="search"></box-icon>
           </div>
-          {/* <h3>Search icon</h3> */}
         </div>
         <div className="america-flag-container link">
           <div className="america-flag">
             <img src="america-flag.png" alt="America-flag" />
           </div>
           <div className="language-select">
-            <select name="" id="">
+            <select name="" id="language">
               <option value="">EN</option>
               <option value="en">English - EN</option>
               <option value="es">español - ES</option>
@@ -78,30 +73,30 @@ function Header() {
             </select>
           </div>
         </div>
-        <a href="#" className="link">
+        <a href="#" className="link account-link">
           <div>
             <p>Hello, sign in</p>
             <h3>Account & Lists</h3>
           </div>
         </a>
-        <a href="#" className="link">
+        <a href="#" className="link returns-link">
           <div>
             <p>Returns</p>
             <h3>& Orders</h3>
           </div>
         </a>
-        <a href="#">
+        <a href="#" className="link cart-link">
           <div className="cart-icon-container">
             <img
               src="cart-logo.png"
               alt=""
               onClick={() => setCount(count + 1)}
             />
+            <div className="cart-count">
+              <h1>{count}</h1>
+            </div>
           </div>
         </a>
-        <div className="cart-count">
-          <h1>{count}</h1>
-        </div>
       </section>
     </div>
   );
