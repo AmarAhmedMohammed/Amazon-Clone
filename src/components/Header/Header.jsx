@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "boxicons";
 import "./header.css";
 
-function Header() {
-  const [count, setCount] = useState(0);
+function Header({count}) {
 
   return (
     <div>
@@ -90,7 +89,6 @@ function Header() {
             <img
               src="cart-logo.png"
               alt=""
-              onClick={() => setCount(count + 1)}
             />
             <div className="cart-count">
               <h1>{count}</h1>

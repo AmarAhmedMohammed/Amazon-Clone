@@ -1,0 +1,54 @@
+.carousel_fade {
+    position: relative;
+}
+
+.carousel_fade::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    background-image: linear-gradient(to bottom, rgba(225, 225, 225, 0), rgba(225, 225, 225));
+}
+
+/* Large desktops: increase image height and fade effect */
+@media (min-width: 1200px) {
+  .carousel_fade::before {
+    height: 350px;
+  }
+}
+
+/* Desktops to large tablets: slightly reduce image height */
+@media (max-width: 1200px) {
+  .carousel_fade::before {
+    height: 300px;
+  }
+}
+
+/* Tablets: reduce image height and fade height */
+@media (max-width: 992px) {
+  .carousel_fade::before {
+    height: 250px;
+  }
+}
+
+/* Small tablets to large mobiles: further reduce sizes */
+@media (max-width: 768px) {
+  .carousel_fade::before {
+    height: 200px;
+  }
+}
+
+/* Mobiles: optimize for smaller screens, reduce fade height */
+@media (max-width: 576px) {
+  .carousel_fade::before {
+    height: 150px;
+  }
+}
+
+/* Extra small mobiles: minimize sizes for narrow screens */
+@media (max-width: 400px) {
+  .carousel_fade::before {
+    height: 40px;
+  }
+}

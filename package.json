@@ -16,8 +16,10 @@
     "@mui/material": "^7.3.1",
     "@mui/styled-engine-sc": "^7.3.1",
     "boxicons": "^2.1.4",
+    "numeral": "^2.0.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.7.1",
     "styled-components": "^6.1.19"
   },
