@@ -2,30 +2,26 @@ import React, { useEffect, useState } from "react";
 import "./product.css";
 import Rating from "@mui/material/Rating";
 import CurrencyFormat from "../CurrenctFormat/CurrencyFormat";
+import { Link } from "react-router-dom";
 
 function Product() {
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(0);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch("https://fakestoreapi.com/products");
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
 
-    fetchProducts();
-  }, []);
+  useEffect(() => {
+        fetch("/data.json") // Updated to API
+        .then((res) => res.json())
+        .then((data) => {
+          setProducts(data);
+        })
+    }, []);
 
   return (
     <div className="product-section">
       <div className="product-container">
         {products.map((product) => (
           <div className="product-card" key={product.id}>
-            <a href="#" className="product-link">
+            <Link to={`/products/${product.id}`} className="product-link">
               <img src={product.image} alt={product.title} />
               <h3>{product.title}</h3>
               <div className="rating-container">
@@ -35,8 +31,10 @@ function Product() {
               <p className="price">
                 <CurrencyFormat amount={product.price} />
               </p>
-            </a>
-            <button className="add-to-cart" onClick={() => setCount(count + 1)}>Add to Cart</button>
+            </Link>
+            <button className="add-to-cart" onClick={() => setCount(count + 1)}>
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>

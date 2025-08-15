@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import "boxicons";
 import "./header.css";
+import { Link } from "react-router-dom";
 
 function Header({count}) {
 
   return (
     <div>
       <section className="header-out-section">
-        <a href="#">
+        <Link to="/">
           <div className="amazon-logo-container">
             <img src="amazon-text-logo.png" alt="" />
           </div>
-        </a>
+        </Link>
         <a href="#" className="location-container link">
           <div className="location-icon-container">
             <box-icon name="map" type="solid" color="#ffffff"></box-icon>
@@ -72,19 +73,19 @@ function Header({count}) {
             </select>
           </div>
         </div>
-        <a href="#" className="link account-link">
+        <Link to="/signUp" className="link account-link">
           <div>
             <p>Hello, sign in</p>
             <h3>Account & Lists</h3>
           </div>
-        </a>
-        <a href="#" className="link returns-link">
+        </Link>
+        <Link to="/order" className="link returns-link">
           <div>
             <p>Returns</p>
             <h3>& Orders</h3>
           </div>
-        </a>
-        <a href="#" className="link cart-link">
+        </Link>
+        <Link to="/cart" className="link cart-link">
           <div className="cart-icon-container">
             <img
               src="cart-logo.png"
@@ -94,7 +95,7 @@ function Header({count}) {
               <h1>{count}</h1>
             </div>
           </div>
-        </a>
+        </Link>
       </section>
     </div>
   );
