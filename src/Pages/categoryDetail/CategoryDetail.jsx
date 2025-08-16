@@ -3,9 +3,10 @@ import "./categoryDetail.css";
 import CurrencyFormat from "../../components/CurrenctFormat/CurrencyFormat";
 import Rating from "@mui/material/Rating";
 import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 function CategoryDetail() {
-  const [categorys, setCategorys] = useState([]);
+  const [categorys, setCategorys] = useState(null);
   const {category} = useParams();
   // console.log(useParams())
   // console.log(category)
@@ -20,13 +21,17 @@ function CategoryDetail() {
       });
   }, [categorys]);
 
-    console.log(categorys)
+    // console.log(categorys)
+
+    if(!categorys) {
+      return <Loader />
+    }
   return (
     <div className="category-detail">
       <header className="category-header">
         <h1>Results</h1>
         <hr />
-        <h2>{`Category / ${categorys.category}`}</h2>
+        <h2>{`Category / ${category}`}</h2>
       </header>
       <div className="product-section">
         <div className="product-container">

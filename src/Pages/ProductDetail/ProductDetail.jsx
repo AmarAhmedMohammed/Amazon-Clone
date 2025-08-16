@@ -3,6 +3,7 @@ import "./productDetail.css";
 import Rating from "@mui/material/Rating";
 import { useParams } from "react-router-dom";
 import CurrencyFormat from "../../components/CurrenctFormat/CurrencyFormat";
+import Loader from "../Loader/Loader";
 
 function ProductDetail() {
   const { productId } = useParams();
@@ -21,7 +22,7 @@ function ProductDetail() {
   }, [productId]);
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <Loader />
   }
 
   return (
