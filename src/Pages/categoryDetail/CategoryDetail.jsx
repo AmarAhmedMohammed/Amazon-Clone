@@ -2,24 +2,31 @@ import React, { useEffect, useState } from "react";
 import "./categoryDetail.css";
 import CurrencyFormat from "../../components/CurrenctFormat/CurrencyFormat";
 import Rating from "@mui/material/Rating";
+import { useParams } from "react-router-dom";
 
-function CategoryDetail({ categoryIn }) {
+function CategoryDetail() {
   const [categorys, setCategorys] = useState([]);
+  const {category} = useParams();
+  // console.log(useParams())
+  // console.log(category)
+
 
   useEffect(() => {
-    fetch(`/${categoryIn}.json`)
+    fetch("/data.json")
       .then((res) => res.json())
       .then((data) => {
-        setCategorys(data);
+        const singelProduct = data.filter((singelProduct) => singelProduct.category === category)
+        setCategorys(singelProduct);
       });
-  }, [categoryIn]);
+  }, [categorys]);
 
+    console.log(categorys)
   return (
     <div className="category-detail">
       <header className="category-header">
         <h1>Results</h1>
         <hr />
-        <h2>{`Category / ${categoryIn}`}</h2>
+        <h2>{`Category / ${categorys.category}`}</h2>
       </header>
       <div className="product-section">
         <div className="product-container">

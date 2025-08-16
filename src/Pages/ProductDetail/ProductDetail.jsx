@@ -9,16 +9,19 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${productId}`)
+    fetch("/data.json")
       .then((res) => res.json())
       .then((data) => {
-        setProduct(data);
+        const singleProductDetail = data.find(
+          (single) => single.id === Number(productId)
+        );
+        setProduct(singleProductDetail);
       })
       .catch((error) => console.error("Error fetching product:", error));
   }, [productId]);
 
   if (!product) {
-    return <div>Loading...</div>; // Placeholder for loading state
+    return <div>Loading...</div>;
   }
 
   return (

@@ -8,7 +8,7 @@ function Category() {
     <div className="category-section">
       <section className="category-container">
         {categoryInfo.map((info, index) => (
-          <Link to={`/${info.field}`} className="category-link" key={index}>
+          <Link to={`/category/${info.category}`} className="category-link" key={index}>
             <div className="category-card">
               <h2>{info.category}</h2>
               <img src={info.image} alt={info.title} />
