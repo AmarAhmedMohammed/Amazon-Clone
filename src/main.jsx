@@ -2,11 +2,15 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
+import { DataProvider } from './components/DataProvider/DataProvider.jsx';
+import {reducer, initialState} from "./Pages/Utility/reducer.jsx"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <DataProvider reducer={reducer} initialState={initialState}>
+        <App />
+      </DataProvider>
     </BrowserRouter>
   </StrictMode>
 );

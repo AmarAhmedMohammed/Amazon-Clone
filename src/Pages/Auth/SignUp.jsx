@@ -1,9 +1,13 @@
 import React from "react";
+import { createContext } from "react";
 import "./signUp.css";
+export const MyContext = createContext();
 
 function SignUp() {
+  
   return (
     <div>
+      
       <article id="article1" className="articles">
         <section className="sec-1 loginform" style={{ display: "none" }}>
           <div>
@@ -13,13 +17,18 @@ function SignUp() {
               <p>Don't have an account?</p>
               <br />
               <button
-                id="register" 
+                id="register"
                 onClick={() => {
-                  // alert("register");
-                  console.log(document.querySelectorAll(".loginform").style.display = "none")
-                  document.querySelectorAll("registerform").style.display = "block";
-                  // document.getElementById("article2").style.transition =
-                  //   "display .8s ease-in-out";
+                  let login = document.querySelectorAll(".loginform");
+                  let signUp = document.querySelectorAll(".registerform");
+                  
+
+                  for (let i = 0; i < login.length; i++) {
+                    login[i].style.display = "none";
+                  }
+                  for (let j = 0; j < signUp.length; j++) {
+                    signUp[j].style.display = "block";
+                  }
                 }}
               >
                 Register
@@ -27,8 +36,9 @@ function SignUp() {
             </div>
           </div>
         </section>
-        <section className="sec-1 sec-11 registerform" >
-          <div><br />
+        <section className="sec-1 sec-11 registerform">
+          <div>
+            <br />
             <h1>Registration</h1>
             <br />
             <form
@@ -37,7 +47,7 @@ function SignUp() {
               className="form"
               id="myForm"
             >
-              <input type="text" name="name" placeholder="Username" required />
+              <input type="text" name="name" className="userInput" placeholder="Username" required />
               <input
                 type="email"
                 name="email"
@@ -53,21 +63,53 @@ function SignUp() {
               />
               <button type="submit">Register</button>
             </form>
+            <h1 className="userIcon">👤</h1>
+            <h1 className="emailIcon">📩</h1>
+            <h1 className="passwordIcon">🔑</h1>
           </div>
         </section>
         <section className="sec-2 loginform" style={{ display: "none" }}>
-          <div>
+          <div><br />
             <h1>Login</h1>
             <br />
-            <form action="">
+            <form action="" id="logForm" onSubmit={(e) => {
+              let email = document.getElementById("email").value;
+              let password = document.getElementById("password").value;
+              let message = document.getElementById("message");
+              let logForm = document.getElementById("logForm");
+              let userName = "";
+              let condition = true;
+
+              e.preventDefault()
+              fetch("http://localhost:1515/users")
+              .then((res) => res.json())
+              .then((value) => {
+                console.log(value)
+                value.map((data) => {
+                  if(data.Email == email && data.Password == password) {
+                    // message.textContent = "You Are Succsfuly Register ✅✅✅✅✅✅"
+                    window.location.href = "http://localhost:5173/"
+                    condition = false;
+                    userName = data.Name;
+                  }
+                });
+                if(condition) {
+                  document.querySelector(".checkName").classList.add("redBorder");
+                  document.querySelector("#password").classList.add("redBorder");
+                }
+                logForm.reset();
+              })
+            }}>
               <input
-                type="text"
+                id="email"
+                type="email"
                 name="name"
                 placeholder="Email"
                 className="checkName"
                 required
               />
               <input
+              id="password"
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -77,22 +119,35 @@ function SignUp() {
               <br />
               <button type="submit">Login</button>
             </form>
+            <h1 className="logImailIcon">📩</h1>
+            <h1 className="logPasswordIcon">🔑</h1>
           </div>
         </section>
+        {/* <MyContext.Provider value={{userName}}>
+
+      </MyContext.Provider> */}
         <section
           className="sec-2 sec-22 registerform"
           // style={{ display: "none" }}
         >
           <div>
             <div>
-              <h2>Wellcome Back!</h2><br />
-              <p>Already have an account?</p><br />
+              <h2>Wellcome Back!</h2>
+              <br />
+              <p>Already have an account?</p>
+              <br />
               <button
                 id="login"
                 onClick={() => {
-                  // document.getElementById("article1").style.transition ="display .8s ease-in-out";
-                  document.querySelectorAll(".loginform").style.display = "block";
-                  document.querySelectorAll("registerform").style.display = "none";
+                  let login = document.querySelectorAll(".loginform");
+                  let signUp = document.querySelectorAll(".registerform");
+
+                  for (let i = 0; i < login.length; i++) {
+                    login[i].style.display = "block";
+                  }
+                  for (let j = 0; j < signUp.length; j++) {
+                    signUp[j].style.display = "none";
+                  }
                 }}
               >
                 Login
@@ -101,6 +156,7 @@ function SignUp() {
           </div>
         </section>
       </article>
+      <h1 id="message"></h1>
     </div>
   );
 }

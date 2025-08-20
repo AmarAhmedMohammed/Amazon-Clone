@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./productDetail.css";
+// import "./pdtail.css";
+// import class from "./"
 import Rating from "@mui/material/Rating";
 import { useParams } from "react-router-dom";
 import CurrencyFormat from "../../components/CurrenctFormat/CurrencyFormat";
 import Loader from "../Loader/Loader";
+import { DataContext } from "../../components/DataProvider/DataProvider";
+import { Type } from "../Utility/action.type";
 
 function ProductDetail() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-
+  
   useEffect(() => {
     fetch("/data.json")
       .then((res) => res.json())
@@ -22,8 +26,9 @@ function ProductDetail() {
   }, [productId]);
 
   if (!product) {
-    return <Loader />
+    return <Loader />;
   }
+  const [state, dispatch] = useContext(DataContext);
 
   return (
     <div className="product-section">
@@ -41,7 +46,20 @@ function ProductDetail() {
               <CurrencyFormat amount={product.price} />
             </p>
           </div>
-          <button className="add-to-cart">Add to Cart</button>
+          <button
+            className="add-to-cart"
+            onClick={() => {
+              console.log(product);
+              dispatch({
+                type: Type.ADD_TO_BASKET,
+                item: {
+                  product,
+                },
+              });
+            }}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>

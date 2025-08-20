@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "boxicons";
 import "./header.css";
 import { Link } from "react-router-dom";
+import { DataContext } from "../DataProvider/DataProvider";
 
 function Header({count}) {
+  const [{basket}, dispatch] = useContext(DataContext)
 
   return (
     <div>
@@ -75,7 +77,7 @@ function Header({count}) {
         </div>
         <Link to="/signUp" className="link account-link">
           <div>
-            <p>Hello, sign in</p>
+            <p>Hello, <span id="signInName">sign in</span></p>
             <h3>Account & Lists</h3>
           </div>
         </Link>
@@ -92,7 +94,7 @@ function Header({count}) {
               alt=""
             />
             <div className="cart-count">
-              <h1>{count}</h1>
+              <h1>{basket.length}</h1>
             </div>
           </div>
         </Link>

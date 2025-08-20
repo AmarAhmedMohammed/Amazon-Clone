@@ -1,31 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./categoryDetail.css";
 import CurrencyFormat from "../../components/CurrenctFormat/CurrencyFormat";
 import Rating from "@mui/material/Rating";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
+import { Type } from "../Utility/action.type";
+import { DataContext } from "../../components/DataProvider/DataProvider";
+
 
 function CategoryDetail() {
   const [categorys, setCategorys] = useState(null);
-  const {category} = useParams();
+  const { category } = useParams();
   // console.log(useParams())
   // console.log(category)
-
-
+  
   useEffect(() => {
     fetch("/data.json")
       .then((res) => res.json())
       .then((data) => {
-        const singelProduct = data.filter((singelProduct) => singelProduct.category === category)
+        const singelProduct = data.filter(
+          (singelProduct) => singelProduct.category === category
+        );
         setCategorys(singelProduct);
       });
   }, [categorys]);
 
-    // console.log(categorys)
+  // console.log(categorys)
 
-    if(!categorys) {
-      return <Loader />
-    }
+  if (!categorys) {
+    return <Loader />;
+  }
+
+  const [state, dispatch] = useContext(DataContext);
+
   return (
     <div className="category-detail">
       <header className="category-header">
@@ -52,7 +59,20 @@ function CategoryDetail() {
                   <small>{product.rating.count} reviews</small>
                 </div>
               </a>
-              <button className="add-to-cart">Add to Cart</button>
+              <button
+                className="add-to-cart"
+                onClick={() => {
+                  console.log(product);
+                  dispatch({
+                    type: Type.ADD_TO_BASKET,
+                    item: {
+                      product,
+                    },
+                  });
+                }}
+              >
+                Add to Cart
+              </button>
             </div>
           ))}
         </div>

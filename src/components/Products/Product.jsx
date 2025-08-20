@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./product.css";
 import Rating from "@mui/material/Rating";
 import CurrencyFormat from "../CurrenctFormat/CurrencyFormat";
 import { Link } from "react-router-dom";
+import { DataContext } from "../DataProvider/DataProvider";
+import { Type } from "../../Pages/Utility/action.type";
 
 function Product() {
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-        fetch("/data.json") // Updated to API
-        .then((res) => res.json())
-        .then((data) => {
-          setProducts(data);
-        })
-    }, []);
+    fetch("/data.json") // Updated to API
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      });
+  }, []);
+
+  const [state, dispatch] = useContext(DataContext);
 
   return (
     <div className="product-section">
@@ -32,7 +36,18 @@ function Product() {
                 <CurrencyFormat amount={product.price} />
               </p>
             </Link>
-            <button className="add-to-cart" onClick={() => setCount(count + 1)}>
+            <button
+              className="add-to-cart"
+              onClick={() => {
+                console.log(product)
+                dispatch({
+                  type: Type.ADD_TO_BASKET,
+                  item: {
+                    product
+                  }
+                });
+              }}
+            >
               Add to Cart
             </button>
           </div>
