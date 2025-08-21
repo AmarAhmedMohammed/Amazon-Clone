@@ -11,7 +11,7 @@
     width: 250px;
     height: 162px;
     padding: 20px 40px;
-    position: fixed;
+    position: absolute;
     top: 231px;
     right: 20px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.134);
@@ -31,4 +31,53 @@
 
 .checkout-link:hover {
     box-shadow: 0 7px 10px rgba(0, 0, 0, 0.58);
+}
+
+
+/* Large desktops */
+@media (min-width: 1400px) {
+  .subtotal_container {
+    zoom: 100%;
+  }
+}
+
+/* Desktops to large tablets */
+@media (max-width: 1200px) {
+  .subtotal_container {
+    zoom: 80%;
+    top: 280px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .subtotal_container {
+    zoom: 70%  ;
+    top: 300px;
+  }
+}
+
+/* Small tablets to large mobiles */
+@media (max-width: 768px) {
+  .subtotal_container {
+    zoom: 60%;
+    top: 350px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 576px) {
+  .subtotal_container {
+    zoom: 50%;
+    top: 430px;
+  }
+}
+
+/* Extra small mobiles */
+@media (max-width: 400px) {
+  .subtotal_container {
+    position: absolute;
+    top: 500px;
+    zoom: 40%;
+  }
 }

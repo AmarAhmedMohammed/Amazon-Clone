@@ -1,29 +1,22 @@
 import Rating from "@mui/material/Rating";
 import CurrencyFormat from "../../components/CurrenctFormat/CurrencyFormat";
-import React, { useContext } from "react";
+import React, { useContext, useReducer } from "react";
 import "./cartDescription.css";
 import { DataContext } from "../../components/DataProvider/DataProvider";
 import { Type } from "../Utility/action.type";
 
 function CartDescription({ products }) {
-  let cartProduct = products.product;
-    // console.log(products)
+  let cartProduct = products.product;    
   
   const [{ basket, user }, dispatch] = useContext(DataContext);
 
-  const increment = (item) => {
+  const remove = (ids) => {
     dispatch({
       type: Type.REMOVE_FROM_BASKET,
-      item,
+      id: ids,
     });
   };
 
-  const decrement = (id) => {
-    dispatch({
-      type: Type.REMOVE_FROM_BASKET,
-      id,
-    });
-  };
   return (
     <div className="cart-detail">
       <div className="product-container">
@@ -45,9 +38,7 @@ function CartDescription({ products }) {
               <CurrencyFormat amount={cartProduct.price} />
             </p>
             <div className="adding-button">
-              <button onClick={() => decrement(item.id)}>➖</button>
-              <h3>{cartProduct.amount} 1</h3>
-              <button onClick={() => increment(item)}>➕</button>
+              <button onClick={() => remove(cartProduct.id)}>Remove From Basket</button>
             </div>
           </div>
         </div>

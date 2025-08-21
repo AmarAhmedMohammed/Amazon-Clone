@@ -4,7 +4,6 @@ import { DataContext } from "../../components/DataProvider/DataProvider";
 import CartDescription from "./CartDescription";
 import CurrencyFormat from "../../components/CurrenctFormat/CurrencyFormat";
 import { Link } from "react-router-dom";
-import { Type } from "../Utility/action.type";
 
 function Cart() {
   const [{ basket, user }, dispatch] = useContext(DataContext);
@@ -13,9 +12,6 @@ function Cart() {
     total = total + basket[i].product.price;
   }
 
-  
-  // * basket[i].amount
-  console.log(basket)
   return (
     <div>
       <section>

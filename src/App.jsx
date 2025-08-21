@@ -26,7 +26,6 @@ function App() {
           <Route path="*" element={<Four04 />} />
         </Route>
       </Routes>
-    {/* https://dummyjson.com/products */}
     </>
   );
 }
