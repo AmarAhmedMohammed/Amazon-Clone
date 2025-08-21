@@ -20,16 +20,13 @@ function App() {
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/order" element={<Orders />} />
           <Route path="/payment" element={<Payment />} />
-          {/* <Route path="/electronics" element={<CategoryDetail categoryIn="electronics" />} />
-          <Route path="/menClothing" element={<CategoryDetail categoryIn="menClothing" />} />
-          <Route path="/jewelery" element={<CategoryDetail categoryIn="jewelery" />} />
-          <Route path="/womenClothing" element={<CategoryDetail categoryIn="womenClothing" />} /> */}
           <Route path="/category/:category" element={<CategoryDetail/>} /> 
           <Route path="/products" element={<Product />} /> 
           <Route path="/products/:productId" element={<ProductDetail />} />
           <Route path="*" element={<Four04 />} />
         </Route>
       </Routes>
+    {/* https://dummyjson.com/products */}
     </>
   );
 }

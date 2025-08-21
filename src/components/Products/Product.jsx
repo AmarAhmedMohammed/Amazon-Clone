@@ -18,6 +18,7 @@ function Product() {
       });
   }, []);
 
+
   const [state, dispatch] = useContext(DataContext);
 
   return (
@@ -39,7 +40,7 @@ function Product() {
             <button
               className="add-to-cart"
               onClick={() => {
-                console.log(product)
+                // console.log(product)
                 dispatch({
                   type: Type.ADD_TO_BASKET,
                   item: {

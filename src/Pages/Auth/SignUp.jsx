@@ -81,7 +81,8 @@ function SignUp() {
               let condition = true;
 
               e.preventDefault()
-              fetch("http://localhost:1515/users")
+              // fetch("http://localhost:1515/users")
+              fetch("/loginData.json")
               .then((res) => res.json())
               .then((value) => {
                 console.log(value)
@@ -123,9 +124,6 @@ function SignUp() {
             <h1 className="logPasswordIcon">🔑</h1>
           </div>
         </section>
-        {/* <MyContext.Provider value={{userName}}>
-
-      </MyContext.Provider> */}
         <section
           className="sec-2 sec-22 registerform"
           // style={{ display: "none" }}

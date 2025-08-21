@@ -1,0 +1,34 @@
+.subtotal-txt {
+    font-size: 17px;
+    display: grid;
+    gap: 5px;
+}
+
+.subtotal_container {
+    display: grid;
+    gap: 15px;
+    background-color: #fff;
+    width: 250px;
+    height: 162px;
+    padding: 20px 40px;
+    position: fixed;
+    top: 231px;
+    right: 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.134);
+}
+
+.checkout-link {
+    background-color: rgb(240, 189, 94);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    color: black;
+    padding: 10px 10px;
+    border-radius: 20px;
+    transition: box-shadow .2s ease-out;
+}
+
+.checkout-link:hover {
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.58);
+}
