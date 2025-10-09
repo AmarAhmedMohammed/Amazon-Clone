@@ -153,7 +153,7 @@ body {
   top: 0px;
   right: 0px;
   color: orange;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
 }
 
 .link:hover {
@@ -215,7 +215,7 @@ body {
     width: 45px;
   }
   .cart-count {
-    font-size: 0.9rem;
+    font-size: 0.6rem;
     right: 10px;
   }
 }
@@ -225,10 +225,7 @@ body {
   .america-flag-container {
     display: none;
   }
-  .location-container p,
-  .link p {
-    display: none;
-  }
+
   .returns-link {
     display: none;
   }
@@ -259,7 +256,7 @@ body {
   .cart-count {
     top: -3px;
     right: 9;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 }
 
@@ -300,7 +297,7 @@ body {
     width: 35px;
   }
   .cart-count {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     right: 8px;
   }
   .account-link {
@@ -352,7 +349,10 @@ body {
   }
   .account-link,
   .returns-link {
-    display: none;
+    /* display: none; */
+    width: 100px;
+    margin: 0 auto;
+    zoom: 0.95;
   }
   .cart-link {
     order: 2;
@@ -363,7 +363,7 @@ body {
   .cart-count {
     top: -2px;
     right: 7px;
-    font-size: 0.6rem;
+    font-size: 0.5rem;
   }
 }
 
@@ -389,7 +389,7 @@ body {
     width: 25px;
   }
   .cart-count {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
     right: 5px;
   }
   .select-container {

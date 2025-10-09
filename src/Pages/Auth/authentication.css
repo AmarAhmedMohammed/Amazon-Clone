@@ -146,9 +146,6 @@
 
 /* Mobile Landscape */
 @media (max-width: 768px) {
-  .auth-container {
-    max-width: 90%;
-  }
 
   .auth-box h1 {
     font-size: 1.6rem;
