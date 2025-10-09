@@ -9,6 +9,7 @@ import Four04 from "./Pages/404/Four04";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import CategoryDetail from "./Pages/categoryDetail/CategoryDetail";
 import Product from "./components/Products/Product";
+import Authentication from "./Pages/Auth/Authentication";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/order" element={<Orders />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/Authentication" element={<Authentication />} />
           <Route path="/category/:category" element={<CategoryDetail/>} /> 
           <Route path="/products" element={<Product />} /> 
           <Route path="/products/:productId" element={<ProductDetail />} />

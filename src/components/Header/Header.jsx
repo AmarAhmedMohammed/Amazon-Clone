@@ -75,7 +75,7 @@ function Header({count}) {
             </select>
           </div>
         </div>
-        <Link to="/signUp" className="link account-link">
+        <Link to="/Authentication" className="link account-link">
           <div>
             <p>Hello, <span id="signInName">sign in</span></p>
             <h3>Account & Lists</h3>
