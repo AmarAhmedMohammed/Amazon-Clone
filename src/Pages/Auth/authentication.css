@@ -134,6 +134,12 @@
   line-height: 1.4;
 }
 
+.error-text {
+  color: red;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 0.5rem;
+} 
 /* ==== MEDIA QUERIES ==== */
 
 /* Medium tablets and small laptops */
