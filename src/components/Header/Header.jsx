@@ -3,10 +3,12 @@ import "boxicons";
 import "./header.css";
 import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
+import { auth } from "../../Pages/Utility/firebase";
 
-function Header({count}) {
-  const [{basket}, dispatch] = useContext(DataContext)
-
+function Header({ count }) {
+  const [{ user, basket }, dispatch] = useContext(DataContext);
+  const name = user?.email?.split("@")[0] || "";
+  const UpperCaseUser = name.toUpperCase();
   return (
     <div>
       <section className="header-out-section">
@@ -27,7 +29,9 @@ function Header({count}) {
         <div className="input-container">
           <div className="select-container">
             <select name="" id="">
-              <option value="all" className="center">All</option>
+              <option value="all" className="center">
+                All
+              </option>
               <option value="arts-crafts">Arts & Crafts</option>
               <option value="automotive">Automotive</option>
               <option value="baby">Baby</option>
@@ -41,7 +45,9 @@ function Header({count}) {
               <option value="girls-fashion">Girls' Fashion</option>
               <option value="health-household">Health & Household</option>
               <option value="home-kitchen">Home & Kitchen</option>
-              <option value="industrial-scientific">Industrial & Scientific</option>
+              <option value="industrial-scientific">
+                Industrial & Scientific
+              </option>
               <option value="kindle-store">Kindle Store</option>
               <option value="luggage">Luggage</option>
               <option value="mens-fashion">Men's Fashion</option>
@@ -75,10 +81,21 @@ function Header({count}) {
             </select>
           </div>
         </div>
-        <Link to="/Authentication" className="link account-link">
+        <Link to={!user && "/Authentication"} className="link account-link">
           <div>
-            <p>Hello, <span id="signInName">sign in</span></p>
-            <h3>Account & Lists</h3>
+            {user ? (
+              <>
+                <p>
+                  Hello, <span className="user-color">{UpperCaseUser}</span>
+                </p>
+                <span onClick={() => auth.signOut()}>Sign Out</span>
+              </>
+            ) : (
+              <>
+                <p>Hello, <span className="user-color">Sign In</span></p>
+                <span>Account & Lists</span>
+              </>
+            )}
           </div>
         </Link>
         <Link to="/order" className="link returns-link">
@@ -89,10 +106,7 @@ function Header({count}) {
         </Link>
         <Link to="/cart" className="link cart-link">
           <div className="cart-icon-container">
-            <img
-              src="cart-logo.png"
-              alt=""
-            />
+            <img src="cart-logo.png" alt="" />
             <div className="cart-count">
               <h1>{basket.length}</h1>
             </div>

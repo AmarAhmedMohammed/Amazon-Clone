@@ -166,6 +166,9 @@ body {
   color: goldenrod;
 }
 
+.user-color {
+  color: gold;
+}
 /* Responsive Media Queries */
 /* Large desktops (adjust padding and sizes slightly for comfort) */
 @media (min-width: 1200px) {
